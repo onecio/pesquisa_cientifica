@@ -4,11 +4,13 @@
     "private": true,
     "homepage": "https://onecio.github.io/pesquisa_cientifica/",
     "scripts": {
+        "build": "node tools/build-assets.js",
         "audit:lighthouse": "lighthouse http://localhost:5500 --output=json --output-path=reports/lighthouse.json --only-categories=accessibility,performance,best-practices,seo --chrome-flags=\"--headless\"",
         "audit:axe": "node tools/run-axe.js"
     },
     "devDependencies": {
         "axe-core": "^4.12.1",
+        "esbuild": "^0.25.6",
         "lighthouse": "^13.4.0",
         "puppeteer": "^25.1.0"
     }

@@ -305,6 +305,17 @@ svg {
     padding: var(--space-7) max(var(--space-4), calc((100vw - var(--max)) / 2));
 }
 
+#roadmap,
+#mapa,
+#modulos,
+#decisao,
+#ferramentas,
+#glossario,
+.footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 960px;
+}
+
 .band-muted {
     background: color-mix(in srgb, var(--surface-subtle), transparent 14%);
     border-block: 1px solid color-mix(in srgb, var(--border), transparent 30%);

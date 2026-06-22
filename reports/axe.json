@@ -13,7 +13,7 @@
     "orientationAngle": 0,
     "orientationType": "portrait-primary"
   },
-  "timestamp": "2026-06-22T13:32:07.893Z",
+  "timestamp": "2026-06-22T13:48:24.030Z",
   "url": "http://localhost:5500/",
   "toolOptions": {
     "runOnly": {
@@ -1942,7 +1942,7 @@
           ],
           "none": [],
           "impact": null,
-          "html": "<div class=\"reading-progress\" aria-hidden=\"true\"><span id=\"readingProgress\"></span></div>",
+          "html": "<div class=\"reading-progress\" aria-hidden=\"true\"><span id=\"readingProgress\" style=\"width: 0%;\"></span></div>",
           "target": [
             ".reading-progress"
           ]
@@ -6683,7 +6683,7 @@
           "impact": null,
           "html": "<a href=\"#mod-ferramentas\">Módulo relacionado</a>",
           "target": [
-            ".tag-list > a[href$=\"#mod-ferramentas\"]"
+            "a[href$=\"#mod-ferramentas\"]"
           ]
         },
         {
@@ -7591,31 +7591,6 @@
             {
               "id": "color-contrast",
               "data": {
-                "fgColor": "#b9bcbe",
-                "bgColor": "#181b20",
-                "contrastRatio": 9.04,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 9.04"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<p>Manuscrito, cover letter, revisão por pares, resposta a pareceres e preprints.</p>",
-          "target": [
-            "#mod-submissao > p"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
                 "fgColor": "#7de5da",
                 "bgColor": "#181b20",
                 "contrastRatio": 11.58,
@@ -7766,31 +7741,6 @@
             {
               "id": "color-contrast",
               "data": {
-                "fgColor": "#b9bcbe",
-                "bgColor": "#181b20",
-                "contrastRatio": 9.04,
-                "fontSize": "12.0pt (16px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 9.04"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<p>Uso assistido para revisão, organização de referências e apoio analítico com transparência.</p>",
-          "target": [
-            "#mod-ia > p"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
                 "fgColor": "#7de5da",
                 "bgColor": "#181b20",
                 "contrastRatio": 11.58,
@@ -7884,81 +7834,6 @@
           "html": "<dd>Autoria, vieses, reprodutibilidade</dd>",
           "target": [
             "#mod-ia > dl > div:nth-child(2) > dd"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#a8caff",
-                "bgColor": "#1e2431",
-                "contrastRatio": 9.28,
-                "fontSize": "9.1pt (12.16px)",
-                "fontWeight": "bold",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 9.28"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<p class=\"eyebrow\">Árvores e fluxos decisórios</p>",
-          "target": [
-            "#decisao > .section-shell > .split.section-header > div > .eyebrow"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#edf2f7",
-                "bgColor": "#1e2431",
-                "contrastRatio": 13.79,
-                "fontSize": "24.0pt (32px)",
-                "fontWeight": "bold",
-                "expectedContrastRatio": "3:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 13.79"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<h2>Escolha o desenho de pesquisa com critérios explícitos.</h2>",
-          "target": [
-            "#decisao > .section-shell > .split.section-header > div > h2"
-          ]
-        },
-        {
-          "any": [
-            {
-              "id": "color-contrast",
-              "data": {
-                "fgColor": "#aeb8c7",
-                "bgColor": "#1e2431",
-                "contrastRatio": 7.75,
-                "fontSize": "13.4pt (17.92px)",
-                "fontWeight": "normal",
-                "expectedContrastRatio": "4.5:1"
-              },
-              "relatedNodes": [],
-              "impact": "serious",
-              "message": "Element has sufficient color contrast of 7.75"
-            }
-          ],
-          "all": [],
-          "none": [],
-          "impact": null,
-          "html": "<p>A página deixa de depender apenas de texto corrido e oferece estruturas visuais para decisão,\n                        comparação e execução.</p>",
-          "target": [
-            "#decisao > .section-shell > .split.section-header > p"
           ]
         },
         {
@@ -8958,7 +8833,7 @@
           "impact": null,
           "html": "<a href=\"#mod-submissao\">Relacionado ao ritual de submissão</a>",
           "target": [
-            "#gloss-peer-review > a[href$=\"#mod-submissao\"]"
+            "a[href$=\"#mod-submissao\"]"
           ]
         },
         {
@@ -9108,7 +8983,7 @@
           "impact": null,
           "html": "<a href=\"#res-osf\">Relacionado à ciência aberta</a>",
           "target": [
-            "#gloss-preprint > a[href$=\"#res-osf\"]"
+            "a[href$=\"#res-osf\"]"
           ]
         },
         {
@@ -9183,7 +9058,7 @@
           "impact": null,
           "html": "<a href=\"#mod-publicacao\">Relacionado à publicação</a>",
           "target": [
-            "#gloss-cover-letter > a[href$=\"#mod-publicacao\"]"
+            "a[href$=\"#mod-publicacao\"]"
           ]
         },
         {
@@ -10520,7 +10395,7 @@
           "impact": null,
           "html": "<a href=\"#mod-ferramentas\">Módulo relacionado</a>",
           "target": [
-            ".tag-list > a[href$=\"#mod-ferramentas\"]"
+            "a[href$=\"#mod-ferramentas\"]"
           ]
         },
         {
@@ -10598,7 +10473,7 @@
           "impact": null,
           "html": "<a href=\"#mod-submissao\">Relacionado ao ritual de submissão</a>",
           "target": [
-            "#gloss-peer-review > a[href$=\"#mod-submissao\"]"
+            "a[href$=\"#mod-submissao\"]"
           ]
         },
         {
@@ -10650,7 +10525,7 @@
           "impact": null,
           "html": "<a href=\"#res-osf\">Relacionado à ciência aberta</a>",
           "target": [
-            "#gloss-preprint > a[href$=\"#res-osf\"]"
+            "a[href$=\"#res-osf\"]"
           ]
         },
         {
@@ -10676,7 +10551,7 @@
           "impact": null,
           "html": "<a href=\"#mod-publicacao\">Relacionado à publicação</a>",
           "target": [
-            "#gloss-cover-letter > a[href$=\"#mod-publicacao\"]"
+            "a[href$=\"#mod-publicacao\"]"
           ]
         },
         {
@@ -11779,6 +11654,131 @@
             "#modulos > .section-shell > .section-header > p:nth-child(3)"
           ],
           "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "12.0pt (16px)",
+                "fontWeight": "normal",
+                "messageKey": "elmPartiallyObscuring",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element's background color could not be determined because it partially overlaps other elements"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<p>Manuscrito, cover letter, revisão por pares, resposta a pareceres e preprints.</p>",
+          "target": [
+            "#mod-submissao > p"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "12.0pt (16px)",
+                "fontWeight": "normal",
+                "messageKey": "elmPartiallyObscuring",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element's background color could not be determined because it partially overlaps other elements"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<p>Uso assistido para revisão, organização de referências e apoio analítico com transparência.</p>",
+          "target": [
+            "#mod-ia > p"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "9.1pt (12.16px)",
+                "fontWeight": "bold",
+                "messageKey": "bgOverlap",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element's background color could not be determined because it is overlapped by another element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<p class=\"eyebrow\">Árvores e fluxos decisórios</p>",
+          "target": [
+            "#decisao > .section-shell > .split.section-header > div > .eyebrow"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "24.0pt (32px)",
+                "fontWeight": "bold",
+                "messageKey": "bgOverlap",
+                "expectedContrastRatio": "3:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element's background color could not be determined because it is overlapped by another element"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<h2>Escolha o desenho de pesquisa com critérios explícitos.</h2>",
+          "target": [
+            "#decisao > .section-shell > .split.section-header > div > h2"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it is overlapped by another element"
+        },
+        {
+          "any": [
+            {
+              "id": "color-contrast",
+              "data": {
+                "contrastRatio": 0,
+                "fontSize": "13.4pt (17.92px)",
+                "fontWeight": "normal",
+                "messageKey": "elmPartiallyObscuring",
+                "expectedContrastRatio": "4.5:1"
+              },
+              "relatedNodes": [],
+              "impact": "serious",
+              "message": "Element's background color could not be determined because it partially overlaps other elements"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "serious",
+          "html": "<p>A página deixa de depender apenas de texto corrido e oferece estruturas visuais para decisão,\n                        comparação e execução.</p>",
+          "target": [
+            "#decisao > .section-shell > .split.section-header > p"
+          ],
+          "failureSummary": "Fix any of the following:\n  Element's background color could not be determined because it partially overlaps other elements"
         }
       ]
     }

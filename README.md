@@ -18,8 +18,9 @@ Projeto estático para orientar pesquisa científica, escrita acadêmica e publi
 ## Estrutura
 
 - `index.html` — conteúdo principal, metadados SEO e estrutura semântica
-- `styles.css` — design system tokenizado e responsivo
-- `main.js` — interações da interface, filtros, busca e alternância de tema
+- `styles.css` — fonte do design system tokenizado e responsivo
+- `main.js` — fonte das interações da interface, filtros, busca e alternância de tema
+- `styles.min.css` e `main.min.js` — assets minificados usados em produção
 - `site.webmanifest` — metadados de instalação e identidade do site
 - `robots.txt` e `sitemap.xml` — suporte básico de indexação
 - `.github/workflows/pages.yml` — deploy automático para GitHub Pages
@@ -30,6 +31,7 @@ Projeto estático para orientar pesquisa científica, escrita acadêmica e publi
 
 - `npm run audit:axe -- http://localhost:5500` — valida acessibilidade com axe
 - `npm run audit:lighthouse` — gera relatório Lighthouse em `reports/lighthouse.json`
+- `npm run build` — gera os assets minificados de produção
 
 ## Publicação
 

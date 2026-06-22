@@ -119,6 +119,8 @@ const dialog = document.getElementById("searchDialog");
 const searchInput = document.getElementById("searchInput");
 const results = document.getElementById("searchResults");
 const searchButtons = [...document.querySelectorAll("[data-open-search], #openSearch")];
+const navLinks = [...document.querySelectorAll(".site-nav a, .context-rail a")];
+const sections = [...document.querySelectorAll("main section[id]")];
 
 const normalize = (value = "") =>
     value
@@ -126,6 +128,15 @@ const normalize = (value = "") =>
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .trim();
+
+const runWhenIdle = (callback) => {
+    if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(callback, { timeout: 1200 });
+        return;
+    }
+
+    window.setTimeout(callback, 1);
+};
 
 function setSearchExpanded(isExpanded) {
     searchButtons.forEach((button) => button.setAttribute("aria-expanded", String(isExpanded)));
@@ -183,24 +194,33 @@ document.querySelectorAll("[data-filter]").forEach((button) => {
     });
 });
 
-const searchable = [...document.querySelectorAll("[data-search]")].map((item) => {
-    const section = item.closest("section");
-    const sectionTitle =
-        section?.querySelector(".section-header h2")?.textContent ||
-        section?.id ||
-        "Conteúdo";
+let searchable = null;
 
-    return {
-        title: item.querySelector("h3")?.textContent || "Item",
-        text: normalize(`${item.textContent} ${item.dataset.search}`),
-        href: `#${item.id || section?.id || "conteudo"}`,
-        sectionTitle
-    };
-});
+function buildSearchIndex() {
+    if (searchable) return searchable;
+
+    searchable = [...document.querySelectorAll("[data-search]")].map((item) => {
+        const section = item.closest("section");
+        const sectionTitle =
+            section?.querySelector(".section-header h2")?.textContent ||
+            section?.id ||
+            "Conteúdo";
+
+        return {
+            title: item.querySelector("h3")?.textContent || "Item",
+            text: normalize(`${item.textContent} ${item.dataset.search}`),
+            href: `#${item.id || section?.id || "conteudo"}`,
+            sectionTitle
+        };
+    });
+
+    return searchable;
+}
 
 function renderSearch(query = "") {
+    const index = buildSearchIndex();
     const value = normalize(query);
-    const matches = searchable
+    const matches = index
         .filter((item) => !value || item.text.includes(value))
         .slice(0, 8);
 
@@ -233,6 +253,7 @@ function openSearchDialog() {
         dialog.showModal();
     }
     setSearchExpanded(true);
+    buildSearchIndex();
     renderSearch(searchInput.value);
     window.setTimeout(() => searchInput.focus(), 0);
 }
@@ -249,12 +270,21 @@ window.addEventListener("keydown", (event) => {
 });
 
 const progress = document.getElementById("readingProgress");
+let readingProgressTicking = false;
+
+function updateReadingProgress() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progressValue = max <= 0 ? 0 : (window.scrollY / max) * 100;
+    progress.style.width = `${Math.max(0, progressValue)}%`;
+    readingProgressTicking = false;
+}
+
 window.addEventListener(
     "scroll",
     () => {
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        const progressValue = max <= 0 ? 0 : (window.scrollY / max) * 100;
-        progress.style.width = `${Math.max(0, progressValue)}%`;
+        if (readingProgressTicking) return;
+        readingProgressTicking = true;
+        window.requestAnimationFrame(updateReadingProgress);
     },
     { passive: true }
 );
@@ -282,32 +312,36 @@ mediaQuery.addEventListener("change", ({ matches }) => {
     updateThemeLabel(next);
 });
 
-const navLinks = [...document.querySelectorAll(".site-nav a, .context-rail a")];
-const sections = [...document.querySelectorAll("main section[id]")];
-
-const observer = new IntersectionObserver(
-    (entries) => {
-        const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (!visible) return;
-
-        navLinks.forEach((link) => {
-            const isCurrent = link.getAttribute("href") === `#${visible.target.id}`;
-            link.classList.toggle("is-current", isCurrent);
-
-            if (isCurrent) {
-                link.setAttribute("aria-current", "true");
-            } else {
-                link.removeAttribute("aria-current");
-            }
-        });
-    },
-    { rootMargin: "-20% 0px -60% 0px", threshold: [0.1, 0.4, 0.7] }
-);
-
-sections.forEach((section) => observer.observe(section));
 renderRoadmap("ideia");
 renderConcept("metodologia");
-renderSearch();
+updateReadingProgress();
+
+runWhenIdle(() => {
+    buildSearchIndex();
+});
+
+runWhenIdle(() => {
+    const observer = new IntersectionObserver(
+        (entries) => {
+            const visible = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+            if (!visible) return;
+
+            navLinks.forEach((link) => {
+                const isCurrent = link.getAttribute("href") === `#${visible.target.id}`;
+                link.classList.toggle("is-current", isCurrent);
+
+                if (isCurrent) {
+                    link.setAttribute("aria-current", "true");
+                } else {
+                    link.removeAttribute("aria-current");
+                }
+            });
+        },
+        { rootMargin: "-20% 0px -60% 0px", threshold: [0.1, 0.4, 0.7] }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+});
