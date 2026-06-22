@@ -1,0 +1,19 @@
+{
+  "name": "Pesquisa OS",
+  "short_name": "Pesquisa OS",
+  "description": "Sistema operacional da pesquisa científica com roadmap, módulos e ferramentas conectadas.",
+  "lang": "pt-BR",
+  "start_url": "/pesquisa_cientifica/",
+  "scope": "/pesquisa_cientifica/",
+  "display": "standalone",
+  "background_color": "#f7f8fb",
+  "theme_color": "#135cc8",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

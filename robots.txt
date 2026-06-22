@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onecio.github.io/pesquisa_cientifica/sitemap.xml

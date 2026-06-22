@@ -1,285 +1,504 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manual Mestre do Pesquisador Iniciante</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Sistema operacional da pesquisa científica com roadmap, conceitos, ferramentas, normas e visualizações para aprender, executar e publicar ciência com rigor." />
+    <meta name="keywords"
+        content="pesquisa científica, metodologia, PRISMA, PICOS, revisão sistemática, publicação científica, ciência aberta" />
+    <meta name="author" content="Pesquisa OS" />
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#135cc8" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:title" content="Sistema Operacional da Pesquisa Científica" />
+    <meta property="og:description"
+        content="Uma plataforma navegável para estruturar problemas, métodos, evidências e publicação científica com clareza institucional." />
+    <meta property="og:url" content="https://onecio.github.io/pesquisa_cientifica/" />
+    <meta property="og:site_name" content="Pesquisa OS" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sistema Operacional da Pesquisa Científica" />
+    <meta name="twitter:description"
+        content="Roadmap, módulos e ferramentas para orientar a pesquisa científica do problema à publicação." />
+    <title>Sistema Operacional da Pesquisa Científica</title>
+    <link rel="canonical" href="https://onecio.github.io/pesquisa_cientifica/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://onecio.github.io/pesquisa_cientifica/" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <script>
+        (() => {
+            const savedTheme = localStorage.getItem("theme");
+            const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+            document.documentElement.dataset.theme = savedTheme || preferredTheme;
+        })();
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Pesquisa OS",
+            "url": "https://onecio.github.io/pesquisa_cientifica/",
+            "inLanguage": "pt-BR",
+            "description": "Sistema operacional da pesquisa científica com roadmap, módulos e ferramentas conectadas ao ciclo completo de investigação."
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <div class="page-shell">
-    <header class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">Manual Mestre do Pesquisador Iniciante</span>
-        <h1>Guia definitivo de pesquisa científica, escrita de artigos e publicação acadêmica.</h1>
-        <p>Da ideia inicial ao envio em grandes revistas: metodologia, revisão sistemática, sistemas editoriais e o modelo brasileiro de ciência aberta.</p>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <svg viewBox="0 0 640 520" class="hero-graphic" role="img" focusable="false">
-          <defs>
-            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#0f2f4d" />
-              <stop offset="100%" stop-color="#1f5a7c" />
-            </linearGradient>
-          </defs>
-          <rect x="0" y="0" width="640" height="520" rx="32" fill="url(#g1)" />
-          <path d="M120 140C208 80 322 92 392 156C462 220 540 256 524 376C508 496 118 520 120 140Z" fill="#70b5d8" opacity="0.42" />
-          <circle cx="178" cy="150" r="24" fill="#f5f8fb" opacity="0.9" />
-          <rect x="352" y="320" width="198" height="116" rx="20" fill="#ffffff" opacity="0.14" />
-          <path d="M380 350h140M380 378h112M380 406h96" stroke="#ffffff" stroke-width="12" stroke-linecap="round" opacity="0.7" />
-          <path d="M200 260h240v140H200z" fill="#0b1f33" opacity="0.9" />
-          <path d="M220 280h200v40H220z" fill="#5ca8d3" />
-          <path d="M220 336h160v36H220z" fill="#97cde7" />
-          <path d="M220 388h112v30H220z" fill="#c4e1f1" />
-        </svg>
-      </div>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
+    <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+    <noscript class="noscript-banner">Ative o JavaScript para usar a busca instantânea, o roadmap interativo e o grafo de conceitos.</noscript>
+
+    <header class="site-header">
+        <a class="brand" href="#visao">
+            <span class="brand-mark" aria-hidden="true">
+                <span></span>
+            </span>
+            <span>
+                <strong>Pesquisa OS</strong>
+                <small>Ecossistema científico</small>
+            </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Navegação principal">
+            <a href="#roadmap">Roadmap</a>
+            <a href="#mapa">Mapa</a>
+            <a href="#modulos">Módulos</a>
+            <a href="#ferramentas">Ferramentas</a>
+            <a href="#glossario">Glossário</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="icon-button" type="button" id="openSearch" aria-label="Abrir busca" aria-controls="searchDialog"
+                aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m21 21-4.3-4.3m1.3-5.2a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" />
+                </svg>
+            </button>
+            <button class="icon-button" type="button" id="themeToggle" aria-label="Alternar tema" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.4-6.4-1.4 1.4M7 17l-1.4 1.4m12.8 0L17 17M7 7 5.6 5.6M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z" />
+                </svg>
+            </button>
+        </div>
     </header>
 
-    <main>
-      <section class="section section-intro">
-        <div>
-          <h2>O que este manual oferece</h2>
-          <p>Uma jornada estruturada de campos fundamentais: definição da pergunta, desenho metodológico, execução, avaliação crítica e submissão em plataformas científicas reconhecidas.</p>
-        </div>
-        <div class="card-grid">
-          <article class="card">
-            <h3>Metodologia Avançada</h3>
-            <p>Diferencie pesquisa quantitativa, qualitativa e mista com clareza para escolher o modelo ideal ao seu objetivo.</p>
-          </article>
-          <article class="card">
-            <h3>Ferramentas Internacionais</h3>
-            <p>Conheça PICOS, PRISMA, ROBIS, CASP e CERQual para garantir validade e confiança às suas conclusões.</p>
-          </article>
-          <article class="card">
-            <h3>Ciência Aberta</h3>
-            <p>Entenda pré-registro, OSF e o papel da transparência em revisões sistemáticas e estudos de alto impacto.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section section-module" id="modulo1">
-        <div class="section-header">
-          <span class="section-number">Módulo 1</span>
-          <h2>Anatomia da Pesquisa</h2>
-        </div>
-        <div class="grid-2">
-          <article>
-            <h3>Natureza dos dados</h3>
-            <div class="pill-grid">
-              <div class="pill"><strong>Quantitativa</strong><span>Dados numéricos, estatísticas, generalização.</span></div>
-              <div class="pill"><strong>Qualitativa</strong><span>Significados, motivações e contexto profundo.</span></div>
-              <div class="pill"><strong>Mista</strong><span>Combina insights numéricos e contextuais.</span></div>
+    <main id="conteudo">
+        <section class="hero band" id="visao">
+            <div class="hero-copy">
+                <p class="eyebrow">Plataforma premium de conhecimento científico</p>
+                <h1>O Sistema Operacional da Pesquisa Científica</h1>
+                <p class="hero-lead">Uma experiência navegável para transformar ideias em problemas, métodos,
+                    evidências, manuscritos e impacto público com rigor, rastreabilidade e clareza institucional.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#roadmap">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M5 12h14m-6-6 6 6-6 6" />
+                        </svg>
+                        Iniciar jornada
+                    </a>
+                    <button class="button button-secondary" type="button" data-open-search aria-controls="searchDialog"
+                        aria-expanded="false">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="m21 21-4.3-4.3m1.3-5.2a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" />
+                        </svg>
+                        Buscar conceito
+                    </button>
+                </div>
+                <dl class="metric-row" aria-label="Indicadores da plataforma">
+                    <div>
+                        <dt>12</dt>
+                        <dd>etapas de pesquisa</dd>
+                    </div>
+                    <div>
+                        <dt>40+</dt>
+                        <dd>conceitos conectados</dd>
+                    </div>
+                    <div>
+                        <dt>AA</dt>
+                        <dd>acessibilidade alvo</dd>
+                    </div>
+                </dl>
             </div>
-            <p>Escolha a abordagem de acordo com a pergunta de pesquisa e a natureza do fenômeno. Um projeto sólido começa com método adequado.</p>
-          </article>
-          <article>
-            <h3>Classificação por objetivos</h3>
-            <ul class="feature-list">
-              <li><strong>Exploratória</strong> — quando o tema é novo ou pouco conhecido.</li>
-              <li><strong>Descritiva</strong> — mapeia características sem buscar causas.</li>
-              <li><strong>Explicativa</strong> — estabelece relação de causa e efeito.</li>
-            </ul>
-          </article>
-        </div>
-        <div class="grid-3">
-          <article class="stat-card">
-            <h4>Pesquisa de Campo</h4>
-            <p>Dados coletados diretamente no mundo real por testes, entrevistas ou observação.</p>
-          </article>
-          <article class="stat-card">
-            <h4>Pesquisa Documental</h4>
-            <p>Baseia-se em documentos existentes, livros, teses, atas e relatórios especializados.</p>
-          </article>
-          <article class="stat-card">
-            <h4>Revisão Sistemática</h4>
-            <p>Sintetiza evidências globais de forma imparcial, integrando estudos publicados em um único panorama crítico.</p>
-          </article>
-        </div>
-      </section>
 
-      <section class="section section-module" id="modulo2">
-        <div class="section-header">
-          <span class="section-number">Módulo 2</span>
-          <h2>Componentes e Ferramentas Metodológicas</h2>
-        </div>
-        <div class="methodology-panel">
-          <div class="methodology-step">
-            <span>1</span>
-            <div>
-              <h4>PICOS</h4>
-              <p>População, Intervenção, Comparação, Outcome e Study Design para perguntas cirúrgicas.</p>
+            <div class="hero-system" aria-label="Visualização do fluxo de pesquisa">
+                <div class="system-topline">
+                    <span>Ideia</span>
+                    <span>Protocolo</span>
+                    <span>Evidência</span>
+                    <span>Publicação</span>
+                </div>
+                <div class="orbit-map" aria-hidden="true">
+                    <span class="orbit orbit-a"></span>
+                    <span class="orbit orbit-b"></span>
+                    <span class="node node-core">Pesquisa</span>
+                    <span class="node node-idea">Problema</span>
+                    <span class="node node-method">Método</span>
+                    <span class="node node-data">Dados</span>
+                    <span class="node node-impact">Impacto</span>
+                </div>
+                <div class="system-metrics">
+                    <div>
+                        <strong>Rastreabilidade</strong>
+                        <span>Decisões documentadas por etapa</span>
+                    </div>
+                    <div>
+                        <strong>Conexões</strong>
+                        <span>Normas, ferramentas e referências integradas</span>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="methodology-step">
-            <span>2</span>
-            <div>
-              <h4>Critérios de Inclusão</h4>
-              <p>Regras objetivas para definir quais estudos entram na seleção e quais são excluídos.</p>
-            </div>
-          </div>
-          <div class="methodology-step">
-            <span>3</span>
-            <div>
-              <h4>PRISMA</h4>
-              <p>Fluxograma transparente que documenta cada fase da triagem de artigos.</p>
-            </div>
-          </div>
-          <div class="methodology-step">
-            <span>4</span>
-            <div>
-              <h4>ROBIS / CASP</h4>
-              <p>Avaliação crítica da qualidade e risco de viés dos estudos selecionados.</p>
-            </div>
-          </div>
-          <div class="methodology-step">
-            <span>5</span>
-            <div>
-              <h4>CERQual</h4>
-              <p>Grau de confiança nas conclusões de estudos qualitativos.</p>
-            </div>
-          </div>
-        </div>
-        <div class="data-grid">
-          <article class="feature-card">
-            <h4>Resumo Estruturado</h4>
-            <p>Apresenta Introdução, Objetivo, Método, Resultados e Conclusão em foco.</p>
-          </article>
-          <article class="feature-card">
-            <h4>Fluxograma PRISMA</h4>
-            <p>Registra de forma indiscutível a triagem de artigos desde a busca até a inclusão final.</p>
-          </article>
-          <article class="feature-card">
-            <h4>Avaliação Crítica</h4>
-            <p>Verifica a qualidade metodológica de cada artigo com checklists reconhecidos.</p>
-          </article>
-        </div>
-      </section>
+        </section>
 
-      <section class="section section-module" id="modulo3">
-        <div class="section-header">
-          <span class="section-number">Módulo 3</span>
-          <h2>Ciência Aberta e Registro</h2>
-        </div>
-        <div class="grid-2">
-          <article>
-            <h3>Pré-registro</h3>
-            <p>Publica o protocolo antes de iniciar a coleta para comprovar que as hipóteses foram definidas de forma transparente.</p>
-          </article>
-          <article>
-            <h3>Registro Pós-hoc</h3>
-            <p>Documenta adaptações metodológicas depois do início do estudo, justificando mudanças com total transparência.</p>
-          </article>
-        </div>
-        <article class="wide-card">
-          <h3>Open Science Framework (OSF)</h3>
-          <p>Plataforma pública para registro de protocolos, dados brutos, scripts e materiais que permitem auditoria científica global.</p>
-        </article>
-      </section>
+        <aside class="context-rail" aria-label="Navegação contextual">
+            <a href="#visao">Visão</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#mapa">Mapa</a>
+            <a href="#modulos">Módulos</a>
+            <a href="#decisao">Decisão</a>
+            <a href="#glossario">Glossário</a>
+        </aside>
 
-      <section class="section section-module" id="modulo4">
-        <div class="section-header">
-          <span class="section-number">Módulo 4</span>
-          <h2>Sistemas de Gerenciamento de Revistas</h2>
-        </div>
-        <div class="grid-3">
-          <article class="stat-card">
-            <h4>Open Journal Systems (OJS)</h4>
-            <p>Plataforma livre que organiza submissão, revisão, editoria e publicação de periódicos científicos.</p>
-          </article>
-          <article class="stat-card">
-            <h4>ScholarOne / Editorial Manager</h4>
-            <p>Softwares corporativos com recursos avançados de métricas e base global de avaliadores.</p>
-          </article>
-          <article class="stat-card">
-            <h4>Por que existem?</h4>
-            <p>Reduzem o caos de e-mails, organizam prazos e garantem a integridade do fluxo editorial.</p>
-          </article>
-        </div>
-      </section>
+        <section class="band band-muted" id="roadmap">
+            <div class="section-shell">
+                <div class="section-header">
+                    <p class="eyebrow">Roadmap interativo</p>
+                    <h2>Da intuição inicial ao impacto científico publicado.</h2>
+                    <p>Cada marco conecta entregáveis, ferramentas, critérios de qualidade e termos essenciais para
+                        reduzir a carga cognitiva sem perder profundidade metodológica.</p>
+                </div>
 
-      <section class="section section-module" id="modulo5">
-        <div class="section-header">
-          <span class="section-number">Módulo 5</span>
-          <h2>Publicação no Brasil e Indexadores Gratuitos</h2>
-        </div>
-        <div class="qualis-card">
-          <h3>Qualis CAPES</h3>
-          <p>Classificação brasileira dos periódicos em estratos de A1 a C, essencial para reputação acadêmica e avaliação de produção científica.</p>
-          <div class="qualis-grid">
-            <span>A1</span><span>A2</span><span>A3</span><span>A4</span>
-            <span>B1</span><span>B2</span><span>B3</span><span>B4</span>
-            <span>C</span>
-          </div>
-        </div>
-        <div class="grid-2">
-          <article>
-            <h3>SciELO</h3>
-            <p>Biblioteca eletrônica da ciência latino-americana que hospeda periódicos rigorosamente selecionados.</p>
-          </article>
-          <article>
-            <h3>Portal CAPES</h3>
-            <p>Acervo nacional que disponibiliza bases internacionais para instituições públicas brasileiras.</p>
-          </article>
-        </div>
-        <div class="top-list">
-          <h4>Principais revistas</h4>
-          <ol>
-            <li>Revista USP</li>
-            <li>Cadernos de Saúde Pública</li>
-            <li>Memórias do Instituto Oswaldo Cruz</li>
-            <li>Educação & Pesquisa</li>
-            <li>RAE</li>
-            <li>Dados</li>
-            <li>Revista Brasileira de Ciência do Solo</li>
-            <li>Scientia Plena</li>
-            <li>Boletim do Museu Paraense Emílio Goeldi</li>
-            <li>Brazilian Journal of Psychiatry</li>
-          </ol>
-        </div>
-      </section>
+                <div class="roadmap-layout">
+                    <div class="roadmap-track" role="list" aria-label="Etapas do ciclo de pesquisa">
+                        <button class="roadmap-step is-active" type="button" data-stage="ideia" role="listitem">
+                            <span>01</span>
+                            Ideia
+                        </button>
+                        <button class="roadmap-step" type="button" data-stage="problema" role="listitem">
+                            <span>02</span>
+                            Problema
+                        </button>
+                        <button class="roadmap-step" type="button" data-stage="metodo" role="listitem">
+                            <span>03</span>
+                            Método
+                        </button>
+                        <button class="roadmap-step" type="button" data-stage="etica" role="listitem">
+                            <span>04</span>
+                            Ética
+                        </button>
+                        <button class="roadmap-step" type="button" data-stage="analise" role="listitem">
+                            <span>05</span>
+                            Análise
+                        </button>
+                        <button class="roadmap-step" type="button" data-stage="publicacao" role="listitem">
+                            <span>06</span>
+                            Publicação
+                        </button>
+                    </div>
 
-      <section class="section section-module" id="modulo6">
-        <div class="section-header">
-          <span class="section-number">Módulo 6</span>
-          <h2>Ritual de Submissão e Termos Técnicos</h2>
-        </div>
-        <div class="glossary-grid">
-          <article>
-            <h4>Peer Review</h4>
-            <p>Avaliação por especialistas que valida a qualidade antes da publicação.</p>
-          </article>
-          <article>
-            <h4>Double-Blind Review</h4>
-            <p>Avaliação em que autores e revisores permanecem anônimos para garantir imparcialidade.</p>
-          </article>
-          <article>
-            <h4>Preprint</h4>
-            <p>Versão inicial do artigo disponibilizada publicamente antes da revisão formal.</p>
-          </article>
-          <article>
-            <h4>Plágio / Autoplágio</h4>
-            <p>Uso indevido de ideias próprias ou alheias sem citação adequada.</p>
-          </article>
-          <article>
-            <h4>CEP / CONEP</h4>
-            <p>Órgãos que aprovam estudos com seres humanos e protegem participantes.</p>
-          </article>
-          <article>
-            <h4>Manuscrito</h4>
-            <p>Arquivo em revisão antes de ser oficialmente publicado como artigo.</p>
-          </article>
-          <article>
-            <h4>Cover Letter</h4>
-            <p>Documento formal de apresentação do artigo ao editor-chefe.</p>
-          </article>
-        </div>
-      </section>
+                    <article class="insight-panel" id="roadmapDetail" aria-live="polite">
+                        <p class="panel-kicker">Marco ativo</p>
+                        <h3>Ideia científica</h3>
+                        <p>Converter uma observação em oportunidade de investigação, registrando contexto, relevância,
+                            lacuna inicial e potencial contribuição.</p>
+                        <ul class="quality-list">
+                            <li><strong>Entregável:</strong> nota conceitual de uma página.</li>
+                            <li><strong>Critério:</strong> problema plausível, delimitado e socialmente relevante.</li>
+                            <li><strong>Conexões:</strong> estado da arte, pergunta, justificativa.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="band" id="mapa">
+            <div class="section-shell">
+                <div class="section-header split">
+                    <div>
+                        <p class="eyebrow">Mapa navegável do conhecimento</p>
+                        <h2>Conceitos, normas, ferramentas e organizações deixam de ser listas isoladas.</h2>
+                    </div>
+                    <p>A plataforma explicita relações: a pessoa usuária entende onde está, quais conceitos sustentam
+                        a etapa atual e quais recursos deve consultar em seguida.</p>
+                </div>
+
+                <div class="knowledge-layout">
+                    <div class="concept-graph" aria-label="Grafo de conceitos científicos">
+                        <button type="button" class="graph-node is-active" data-concept="metodologia">Metodologia</button>
+                        <button type="button" class="graph-node" data-concept="prisma">PRISMA</button>
+                        <button type="button" class="graph-node" data-concept="picos">PICOS</button>
+                        <button type="button" class="graph-node" data-concept="osf">OSF</button>
+                        <button type="button" class="graph-node" data-concept="peer">Peer review</button>
+                        <button type="button" class="graph-node" data-concept="qualis">Qualis</button>
+                        <span class="graph-line line-a"></span>
+                        <span class="graph-line line-b"></span>
+                        <span class="graph-line line-c"></span>
+                        <span class="graph-line line-d"></span>
+                    </div>
+                    <article class="insight-panel" id="conceptDetail" aria-live="polite">
+                        <p class="panel-kicker">Conceito selecionado</p>
+                        <h3>Metodologia</h3>
+                        <p>Define o desenho da investigação, os procedimentos de coleta, a estratégia analítica e os
+                            critérios de validade.</p>
+                        <div class="tag-list">
+                            <a href="#mod-ferramentas">Módulo relacionado</a>
+                            <a href="#ferramentas">Ferramentas</a>
+                            <a href="#glossario">Glossário</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="band band-ink" id="modulos">
+            <div class="section-shell">
+                <div class="section-header">
+                    <p class="eyebrow">Arquitetura da informação</p>
+                    <h2>Módulos desenhados para iniciantes e pesquisadores experientes.</h2>
+                    <p>Os blocos combinam aprendizagem progressiva, consulta técnica e navegação contextual.</p>
+                </div>
+
+                <div class="filter-bar" aria-label="Filtros de módulos">
+                    <button class="chip is-active" type="button" data-filter="all">Todos</button>
+                    <button class="chip" type="button" data-filter="aprendizagem">Aprendizagem</button>
+                    <button class="chip" type="button" data-filter="execucao">Execução</button>
+                    <button class="chip" type="button" data-filter="publicacao">Publicação</button>
+                </div>
+
+                <div class="module-grid">
+                    <article class="module-card" id="mod-anatomia" data-category="aprendizagem"
+                        data-search="anatomia pesquisa desenho experimental variáveis">
+                        <span class="module-index">01</span>
+                        <h3>Anatomia da pesquisa</h3>
+                        <p>Tipos de estudo, variáveis, unidades de análise, validade interna e externa.</p>
+                        <dl>
+                            <div><dt>Nível</dt><dd>Fundacional</dd></div>
+                            <div><dt>Conexões</dt><dd>PICOS, protocolo, amostra</dd></div>
+                        </dl>
+                    </article>
+                    <article class="module-card" id="mod-ferramentas" data-category="execucao"
+                        data-search="método protocolo prisma casp robis cerqual">
+                        <span class="module-index">02</span>
+                        <h3>Ferramentas metodológicas</h3>
+                        <p>PICOS, PRISMA, CASP, ROBIS, CERQual e checklists operacionais.</p>
+                        <dl>
+                            <div><dt>Nível</dt><dd>Intermediário</dd></div>
+                            <div><dt>Conexões</dt><dd>Revisão, qualidade, síntese</dd></div>
+                        </dl>
+                    </article>
+                    <article class="module-card" id="mod-etica" data-category="execucao"
+                        data-search="ética cep conep consentimento anonimizar dados">
+                        <span class="module-index">03</span>
+                        <h3>Ética e governança</h3>
+                        <p>CEP/CONEP, consentimento, anonimização, gestão de riscos e rastreabilidade.</p>
+                        <dl>
+                            <div><dt>Nível</dt><dd>Obrigatório</dd></div>
+                            <div><dt>Conexões</dt><dd>LGPD, dados, protocolo</dd></div>
+                        </dl>
+                    </article>
+                    <article class="module-card" id="mod-publicacao" data-category="publicacao"
+                        data-search="publicação periódico qualis scielo capes ojs">
+                        <span class="module-index">04</span>
+                        <h3>Publicação e indexação</h3>
+                        <p>Escolha de periódicos, indexadores, critérios editoriais e estratégia de impacto.</p>
+                        <dl>
+                            <div><dt>Nível</dt><dd>Avançado</dd></div>
+                            <div><dt>Conexões</dt><dd>Qualis, SciELO, OJS</dd></div>
+                        </dl>
+                    </article>
+                    <article class="module-card" id="mod-submissao" data-category="publicacao"
+                        data-search="peer review cover letter manuscrito preprint revisão por pares">
+                        <span class="module-index">05</span>
+                        <h3>Ritual de submissão</h3>
+                        <p>Manuscrito, cover letter, revisão por pares, resposta a pareceres e preprints.</p>
+                        <dl>
+                            <div><dt>Nível</dt><dd>Operacional</dd></div>
+                            <div><dt>Conexões</dt><dd>Peer review, editor, preprint</dd></div>
+                        </dl>
+                    </article>
+                    <article class="module-card" id="mod-ia" data-category="aprendizagem"
+                        data-search="inteligência artificial ia escrita revisão referências">
+                        <span class="module-index">06</span>
+                        <h3>IA aplicada com responsabilidade</h3>
+                        <p>Uso assistido para revisão, organização de referências e apoio analítico com transparência.</p>
+                        <dl>
+                            <div><dt>Nível</dt><dd>Transversal</dd></div>
+                            <div><dt>Conexões</dt><dd>Autoria, vieses, reprodutibilidade</dd></div>
+                        </dl>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="band band-muted" id="decisao">
+            <div class="section-shell">
+                <div class="section-header split">
+                    <div>
+                        <p class="eyebrow">Árvores e fluxos decisórios</p>
+                        <h2>Escolha o desenho de pesquisa com critérios explícitos.</h2>
+                    </div>
+                    <p>A página deixa de depender apenas de texto corrido e oferece estruturas visuais para decisão,
+                        comparação e execução.</p>
+                </div>
+
+                <div class="decision-grid">
+                    <article class="flow-panel">
+                        <h3>Árvore de decisão metodológica</h3>
+                        <div class="decision-tree" aria-label="Fluxo para escolha de desenho de pesquisa">
+                            <div>Qual é a pergunta?</div>
+                            <div class="tree-branch">
+                                <span>Medir efeito</span>
+                                <span>Compreender experiência</span>
+                                <span>Integrar evidências</span>
+                            </div>
+                            <div class="tree-branch">
+                                <span>Quantitativo</span>
+                                <span>Qualitativo</span>
+                                <span>Revisão sistemática</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="flow-panel">
+                        <h3>Matriz comparativa</h3>
+                        <div class="comparison-table" role="table" aria-label="Comparação de desenhos de pesquisa">
+                            <div role="row">
+                                <strong role="columnheader">Desenho</strong>
+                                <strong role="columnheader">Uso principal</strong>
+                                <strong role="columnheader">Risco crítico</strong>
+                            </div>
+                            <div role="row">
+                                <span role="cell">Experimental</span>
+                                <span role="cell">Causalidade</span>
+                                <span role="cell">Controle insuficiente</span>
+                            </div>
+                            <div role="row">
+                                <span role="cell">Qualitativo</span>
+                                <span role="cell">Sentido e contexto</span>
+                                <span role="cell">Baixa saturação</span>
+                            </div>
+                            <div role="row">
+                                <span role="cell">Revisão</span>
+                                <span role="cell">Síntese de evidências</span>
+                                <span role="cell">Busca incompleta</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="band" id="ferramentas">
+            <div class="section-shell">
+                <div class="section-header">
+                    <p class="eyebrow">Ecossistema operacional</p>
+                    <h2>Ferramentas, normas, organizações e templates conectados ao ciclo de vida da pesquisa.</h2>
+                </div>
+
+                <div class="resource-grid">
+                    <article class="resource-card" id="res-osf"
+                        data-search="osf ciência aberta pré-registro repositório dados doi">
+                        <h3>OSF</h3>
+                        <p>Repositório, pré-registro, materiais, dados e versionamento público.</p>
+                        <span>Etapas: protocolo, transparência, publicação.</span>
+                    </article>
+                    <article class="resource-card" id="res-prisma"
+                        data-search="prisma revisão sistemática fluxograma checklist">
+                        <h3>PRISMA</h3>
+                        <p>Checklist e fluxograma para relato transparente de revisões sistemáticas.</p>
+                        <span>Etapas: estado da arte, triagem, síntese.</span>
+                    </article>
+                    <article class="resource-card" id="res-cep"
+                        data-search="cep conep ética pesquisa seres humanos">
+                        <h3>CEP/CONEP</h3>
+                        <p>Sistema brasileiro de avaliação ética para pesquisas com seres humanos.</p>
+                        <span>Etapas: ética, coleta, governança.</span>
+                    </article>
+                    <article class="resource-card" id="res-qualis"
+                        data-search="scielo capes qualis indexadores periódicos brasileiros">
+                        <h3>SciELO, CAPES e Qualis</h3>
+                        <p>Ambiente brasileiro de indexação, avaliação e acesso a periódicos científicos.</p>
+                        <span>Etapas: submissão, reputação, impacto.</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="band band-muted" id="glossario">
+            <div class="section-shell">
+                <div class="section-header">
+                    <p class="eyebrow">Glossário essencial</p>
+                    <h2>Definições curtas, técnicas e conectadas ao uso prático.</h2>
+                </div>
+
+                <div class="glossary-grid">
+                    <article class="glossary-item" id="gloss-peer-review"
+                        data-search="peer review revisão por pares avaliação manuscrito">
+                        <h3>Peer review</h3>
+                        <p>Avaliação crítica de manuscritos por especialistas antes da publicação.</p>
+                        <a href="#mod-submissao">Relacionado ao ritual de submissão</a>
+                    </article>
+                    <article class="glossary-item" id="gloss-picos"
+                        data-search="picos population intervention comparison outcome study">
+                        <h3>PICOS</h3>
+                        <p>Estrutura para formular perguntas e critérios de elegibilidade em revisões e estudos.</p>
+                        <a href="#roadmap">Relacionado às perguntas de pesquisa</a>
+                    </article>
+                    <article class="glossary-item" id="gloss-preprint"
+                        data-search="preprint manuscrito publicação antes revisão">
+                        <h3>Preprint</h3>
+                        <p>Versão pública de um artigo antes da avaliação editorial formal.</p>
+                        <a href="#res-osf">Relacionado à ciência aberta</a>
+                    </article>
+                    <article class="glossary-item" id="gloss-cover-letter"
+                        data-search="cover letter carta editor submissão manuscrito">
+                        <h3>Cover letter</h3>
+                        <p>Carta formal que apresenta o manuscrito, sua contribuição e adequação ao periódico.</p>
+                        <a href="#mod-publicacao">Relacionado à publicação</a>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
-      <p>Projeto criado para orientar pesquisadores em cada etapa da produção científica e publicação acadêmica.</p>
-      <p>HTML responsivo, com identidade corporativa e conteúdo estruturado para leitura profissional.</p>
+        <div>
+            <strong>Pesquisa OS</strong>
+            <p>Base estática redesenhada como plataforma premium de conhecimento científico, com foco em autoridade,
+                navegação, visualização e acessibilidade.</p>
+            <p class="footer-meta">SEO técnico, manifest, sitemap, automação de deploy e auditorias de qualidade agora
+                fazem parte do projeto.</p>
+        </div>
+        <a href="#visao">Voltar ao topo</a>
     </footer>
-  </div>
+
+    <dialog class="search-dialog" id="searchDialog" aria-labelledby="searchTitle" aria-describedby="searchHint">
+        <form method="dialog" class="search-shell">
+            <div class="search-header">
+                <div>
+                    <p class="eyebrow">Busca instantânea</p>
+                    <h2 id="searchTitle">Encontrar conceito, módulo ou ferramenta</h2>
+                </div>
+                <button class="icon-button" value="close" aria-label="Fechar busca">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 6l12 12M18 6 6 18" />
+                    </svg>
+                </button>
+            </div>
+            <label class="sr-only" for="searchInput">Termo de busca</label>
+            <input id="searchInput" type="search" autocomplete="off"
+                placeholder="Digite: PRISMA, Qualis, ética, IA..." />
+            <p class="search-hint" id="searchHint">Use <kbd>Ctrl</kbd> + <kbd>K</kbd> para abrir a busca a qualquer
+                momento.</p>
+            <div class="search-results" id="searchResults" aria-live="polite"></div>
+        </form>
+    </dialog>
+
+    <script src="main.js" defer></script>
 </body>
+
 </html>

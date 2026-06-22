@@ -1,0 +1,15 @@
+{
+    "name": "pesquisa_cientifica",
+    "version": "0.2.0",
+    "private": true,
+    "homepage": "https://onecio.github.io/pesquisa_cientifica/",
+    "scripts": {
+        "audit:lighthouse": "lighthouse http://localhost:5500 --output=json --output-path=reports/lighthouse.json --only-categories=accessibility,performance,best-practices,seo --chrome-flags=\"--headless\"",
+        "audit:axe": "node tools/run-axe.js"
+    },
+    "devDependencies": {
+        "axe-core": "^4.12.1",
+        "lighthouse": "^13.4.0",
+        "puppeteer": "^25.1.0"
+    }
+}
